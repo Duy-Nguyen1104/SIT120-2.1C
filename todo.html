@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Todo App</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Todo App</h1>
+      <input v-model="newTodo" @keyup.enter="addTodo" placeholder="New Task">
+    </header>
+    <ul>
+      <li v-for="(todo, index) in todos" :key="index" :class="{ completed: todo.completed }">
+        <input type="checkbox" v-model="todo.completed">
+        <span>{{ todo.text }}</span>
+        <button @click="deleteTodo(index)">Delete</button>
+      </li>
+    </ul>
+    <p>Total Tasks: {{ totalTasks }}</p>
+    <p>Pending Tasks: {{ pendingTasks }}</p>
+  </div>
+  <script src="https://unpkg.com/vue@3.2.6/dist/vue.global.js"></script>
+  <script src="todo.js"></script>
+</body>
+</html>
