@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Examples</title>
+    <script src="https://unpkg.com/vue@3.2.6/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">This is my sample website</h1>
+    <div id="app">
+
+        <h1 v-show="showMessage">Below is the list of books that I have recently bought</h1>
+        <ul>
+            <li v-for="book in books">
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author }}</p>
+            </li>
+        </ul>
+
+        <input v-model="inputValue" placeholder="Leave comment here">
+        <p>You commented: {{ inputValue }}</p>
+
+        <h2 v-if="surprise">Thanks for viewing this site!</h2>
+        <h2 v-else> See you again 😄</h2>
+        <button @click="toggleSurprise">Say Goodbye</button>
+        
+    </div>
+    <script src = "hello.js"></script>
+</body>
+</html>
